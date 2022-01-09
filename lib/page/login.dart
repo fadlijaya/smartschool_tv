@@ -111,7 +111,7 @@ class _LoginState extends State<Login> {
     final node = FocusScope.of(context);
 
     return Container(
-      margin: const EdgeInsets.only(top: 100),
+      margin: const EdgeInsets.only(top: 24),
       child: Form(
         key: _formKey,
         child: Column(
@@ -123,13 +123,13 @@ class _LoginState extends State<Login> {
                 Text(
                   'Login',
                   style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 30,
                       color: Colors.blue,
                       fontWeight: FontWeight.bold),
                 ),
               ],
             ),
-            const SizedBox(height: 12,),
+            const SizedBox(height: 40,),
             TextFormField(
               style: const TextStyle(color: Colors.black54),
               cursorColor: Colors.black54,

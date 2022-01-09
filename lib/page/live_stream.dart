@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
- 
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
@@ -68,58 +68,68 @@ class _LiveStreamState extends State<LiveStream> {
                   children: [
                     for (Map document in snapshot.data)
                       idGuru == document['id_guru']
-                      ? Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              const Text('Jadwal pelajaran : ',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                              Flexible(
-                                  child: Text(document['namamatapelajaran'])),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          Row(
-                            children: [
-                              const Text('Kelas : ',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                              Text(document['nama_kelas']),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              var meetingId = document['meeting_id'];
-                              var meetingPassword = document['passcode'];
-                              joinMeeting(context, meetingId, meetingPassword);
-                            },
-                            child: Container(
-                              width: double.infinity,
-                              height: 48,
-                              margin: const EdgeInsets.only(bottom: 16),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(24),
-                                color: Colors.blue,
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Sedang Berlangsung',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 16.0),
+                          ? Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Text('Jadwal pelajaran : ',
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            )),
+                                    Flexible(
+                                        child: Text(
+                                            document['namamatapelajaran'], style: const TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold))),
+                                  ],
                                 ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                      : Container()
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                Row(
+                                  children: [
+                                    const Text('Kelas : ',
+                                        style: TextStyle(
+                                            fontSize: 18)),
+                                    Flexible(
+                                      child: Text(document['nama_kelas'], style: const TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold)),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    var meetingId = document['meeting_id'];
+                                    var meetingPassword = document['passcode'];
+                                    joinMeeting(
+                                        context, meetingId, meetingPassword);
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 60,
+                                    margin: const EdgeInsets.only(bottom: 16),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(24),
+                                      color: Colors.blue,
+                                    ),
+                                    child: const Center(
+                                      child: Text(
+                                        'Sedang Berlangsung',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
+                          : Container()
                   ],
                 ),
               );

@@ -67,14 +67,21 @@ class _AccountState extends State<Account> {
           const SizedBox(
             height: 12.0,
           ),
-          const Icon(Icons.account_circle_rounded,
-              size: 70.0, color: Colors.white),
-          Text(
-            "$namaGuru",
-            style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 18.0,
-                color: Colors.white),
+          Row(
+            children: [
+              const Icon(Icons.account_circle_rounded,
+                  size: 70.0, color: Colors.white),
+              const SizedBox(width: 12,),
+              Flexible(
+                child: Text(
+                  "$namaGuru",
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 24.0,
+                      color: Colors.white),
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -93,12 +100,11 @@ class _AccountState extends State<Account> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('NIP',
-                      style: TextStyle(color: Colors.black54, fontSize: 12)),
+                  const Text('NIP'),
                   const SizedBox(
                     height: 4,
                   ),
-                  Text("$nipGuru")
+                  Text("$nipGuru", style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),)
                 ],
               ),
             ),
@@ -110,12 +116,11 @@ class _AccountState extends State<Account> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Email',
-                      style: TextStyle(color: Colors.black54, fontSize: 12)),
+                  const Text('Email'),
                   const SizedBox(
                     height: 4,
                   ),
-                  Text("$emailGuru")
+                  Text("$emailGuru", style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
                 ],
               ),
             ),
@@ -134,7 +139,7 @@ class _AccountState extends State<Account> {
                   children: [
                     const Icon(
                       Icons.exit_to_app,
-                      size: 16,
+                      size: 24,
                       color: Colors.red,
                     ),
                     const SizedBox(
@@ -142,7 +147,7 @@ class _AccountState extends State<Account> {
                     ),
                     const Text(
                       "Keluar",
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(color: Colors.red, fontSize: 18),
                     )
                   ],
                 ),
